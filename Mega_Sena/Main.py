@@ -19,12 +19,15 @@ def mostra_cartela(numeros):
         #if para verificar se a quantidade de numeros marcados foi excedida
         if len(numeros) > cartela_marcado:
             Ignore
-            #if que verificar quak numero foi sorteado para colocar na cartela
+            #if que verificar qual numero foi sorteado para colocar na cartela
             if(matriz_s[cartela] == numeros[cartela_marcado]):
                 print("-", end= "")
                 cartela_marcado += 1
-                cartela -= 1
+                
         # print("cartela ", cartela, end=" ")
+        if cartela < 10:
+            print(matriz_s[cartela], end='  ')
+           
         print(matriz_s[cartela], end=' ')
         cartela += 1
         #if para pular linhas de 10 em 10
@@ -32,23 +35,10 @@ def mostra_cartela(numeros):
             print("\n")
     print('tamanho ', len(matriz_s))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-print("Quantos numeros você deseja jogar: 4, 5 ou 6 numeros ", end="")
+#programa inicia
+print("Quantos numeros você deseja jogar: 6, 7 ou 8 numeros ", end="")
 jogo = int(input())
-if(jogo >= 4) and (jogo <= 6):
+if(jogo >= 6) and (jogo <= 8):
     numeros = []
     for i in range(0, jogo):
         gera = random.randint(1, 60)
@@ -57,7 +47,3 @@ if(jogo >= 4) and (jogo <= 6):
     numeros.sort()
     print("numeros: ", numeros)
     mostra_cartela(numeros)
-    
-    
-    
-    
