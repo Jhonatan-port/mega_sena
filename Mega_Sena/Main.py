@@ -27,8 +27,8 @@ def mostra_cartela(numeros):
         # print("cartela ", cartela, end=" ")
         if cartela < 10:
             print(matriz_s[cartela], end='  ')
-           
-        print(matriz_s[cartela], end=' ')
+        else:
+            print(matriz_s[cartela], end=' ')
         cartela += 1
         #if para pular linhas de 10 em 10
         if(cartela == 10 or cartela == 20 or cartela == 30 or cartela == 40 or cartela == 50 or cartela == 60):
@@ -36,14 +36,21 @@ def mostra_cartela(numeros):
     print('tamanho ', len(matriz_s))
 
 #programa inicia
-print("Quantos numeros você deseja jogar: 6, 7 ou 8 numeros ", end="")
-jogo = int(input())
-if(jogo >= 6) and (jogo <= 8):
-    numeros = []
-    for i in range(0, jogo):
-        gera = random.randint(1, 60)
-        numeros.append(gera)
-    
-    numeros.sort()
-    print("numeros: ", numeros)
-    mostra_cartela(numeros)
+inicio = False
+
+while inicio == False:
+    print("Quantos numeros você deseja jogar: 6, 7 ou 8 numeros: ", end="")
+    jogo = int(input())
+    if(jogo >= 6) and (jogo <= 8):
+        numeros = []
+        for i in range(0, jogo):
+            gera = random.randint(1, 60)
+            numeros.append(gera)
+        
+        numeros.sort()
+        print("numeros: ", numeros)
+        mostra_cartela(numeros)
+        inicio = True
+    else:
+        print("Favor digitar um numero valido.")
+        inicio = False
