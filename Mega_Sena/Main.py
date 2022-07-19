@@ -2,8 +2,8 @@
 import random
 from tokenize import Ignore
 #cria a matriz para ser usada na função
-matriz_s = []
 
+matriz_s = []
 
 def mostra_cartela(numeros):
 #for que gera os numeros da cartela
@@ -35,22 +35,26 @@ def mostra_cartela(numeros):
             print("\n")
     print('tamanho ', len(matriz_s))
 
+def gera_numeros(jogo):
+    numeros = []
+    for i in range(0, jogo):
+        gera = random.randint(1, 60)
+        numeros.append(gera)
+        
+        numeros.sort()
+    print("numeros: ", numeros)
+    mostra_cartela(numeros)
+
 #programa inicia
 inicio = False
-
 while inicio == False:
     print("Quantos numeros você deseja jogar: 6, 7 ou 8 numeros: ", end="")
     jogo = int(input())
     if(jogo >= 6) and (jogo <= 8):
-        numeros = []
-        for i in range(0, jogo):
-            gera = random.randint(1, 60)
-            numeros.append(gera)
-        
-        numeros.sort()
-        print("numeros: ", numeros)
-        mostra_cartela(numeros)
+        gera_numeros(jogo)
         inicio = True
     else:
         print("Favor digitar um numero valido.")
         inicio = False
+
+
